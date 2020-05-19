@@ -11,6 +11,19 @@ ol[class] {
   padding: 0;
 }
 
+a{
+  color: #000;
+  text-decoration: none;
+}
+
+svg{
+  display: block;
+}
+
+*:focus{
+  outline: none;
+}
+
 /* Убираем внешние отступы */
 body,
 h1,

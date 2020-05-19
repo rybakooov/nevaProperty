@@ -1,0 +1,54 @@
+extends ../template
+block title
+  | Нева | Новости
+block content
+  main.main
+    section.firstSolo
+      .container
+        .breadcrumbs
+          a(href="#").breadcrumbs__link
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.66667 4.33333V11H9.33333V4.33333M2.66667 4.33333L1 6M2.66667 4.33333L6 1L9.33333 4.33333M11 6L9.33333 4.33333" stroke="#242C95" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            | Главная
+          a(href="#").breadcrumbs__link 
+            <svg width="5" height="9" viewBox="0 0 5 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L4 4.5L1 8" stroke="#989898"/>
+            </svg>
+            | Новости
+        h1.defaultTitle Новости
+        .news-grid
+          a(href="#").news-card
+            .news-card-img
+              img(src="assets/images/news-preview.png", alt="")
+            p.news-card-desc__title Рост количества объектов коммерческой недвижимости в Санкт-Петербурге оличества объектов коммерческой недвижимости в Санкт-Петербурге 
+            p.news-card-desc__when 17 апреля 2020 года
+          a(href="#").news-card
+            .news-card-img
+              img(src="assets/images/news-preview.png", alt="")
+            p.news-card-desc__title Рост количества объектов коммерческой недвижимости в Санкт-Петербурге 
+            p.news-card-desc__when 17 апреля 2020 года
+          a(href="#").news-card
+            .news-card-img
+              img(src="assets/images/news-preview.png", alt="")
+            p.news-card-desc__title Рост количества объектов коммерческой недвижимости в Санкт-Петербурге 
+            p.news-card-desc__when 17 апреля 2020 года
+          a(href="#").news-card
+            .news-card-img
+              img(src="assets/images/news-preview.png", alt="")
+            p.news-card-desc__title Рост количества объектов коммерческой недвижимости в Санкт-Петербурге 
+            p.news-card-desc__when 17 апреля 2020 года
+        .pagination
+          a(href="#").pagination__arr.pagination__arr_prev.pagination__arr_disabled
+            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1.00024L1 7.00024L7 13.0002" stroke="#1B1B1B" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          a(href="#").pagination__arr.pagination__arr_page.pagination__arr_page_ACTIVE 1
+          a(href="#").pagination__arr.pagination__arr_page 2
+          p.pagination__miss ...
+          a(href="#").pagination__arr.pagination__arr_page 15
+          a(href="#").pagination__arr.pagination__arr_page 16
+          a(href="#").pagination__arr.pagination__arr_next
+            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1.00024L7 7.00024L1 13.0002" stroke="#1B1B1B" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>

@@ -1,0 +1,60 @@
+.footer{
+  background: #FCFCFC;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 3px 3px 0 0;
+  &-top{
+    padding: 36px 0;
+    display: flex;
+    align-items: center;
+  }
+  &__logo, &__rights, &__rastudio, &-social{
+    flex: 1;
+  }
+
+  &-linklist, &__agreement{
+    flex: 2;
+  }
+
+  
+  &-linklist{
+    display: flex;
+    align-items: center;
+    &__link{
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 14px;
+      color: var(--black);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      &:not(:last-child){
+        margin-right: 32px;
+      }
+    }
+  }
+  &-social{
+    display: flex;
+    justify-content: flex-end;
+    &__link{
+      &:not(:last-child){
+        margin-right: 20px;
+      }
+    }
+  }
+  &__rights, &__agreement {
+    font-size: 16px;
+    line-height: 18px;
+    color: var(--middleGray);
+  }
+  &__rastudio{
+    display: flex;
+    svg{
+      margin-left: auto;
+    }
+  }
+  &-bot{
+    border-top: 1px solid var(--lightGray);
+    padding: 32px 0 24px;
+    display: flex;
+    align-items: center;
+  }
+}

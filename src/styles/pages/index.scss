@@ -159,6 +159,8 @@
     position: relative;
     .owl-stage-outer{
       overflow: hidden;
+      padding: 20px 20px;
+      margin: -20px -20px;
     }
     .owl-nav{
       width: calc(100% + 118px);

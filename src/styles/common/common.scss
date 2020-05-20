@@ -40,7 +40,7 @@ body{
 }
 
 .wrapper{
-  overflow: hidden;
+  //overflow: hidden;
 }
 .firstSolo{
   margin-top: 84px !important;
@@ -397,6 +397,7 @@ body{
 .form{
   margin-top: 160px;
   margin-bottom: 168px;
+  overflow: hidden;
   &-row{
     display: flex;
     margin-top: 64px;

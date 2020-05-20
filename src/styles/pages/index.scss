@@ -1,5 +1,6 @@
 .banner{
   position: relative;
+  overflow: hidden;
   &-item{
     height: 100vh;
     min-height: 600px;

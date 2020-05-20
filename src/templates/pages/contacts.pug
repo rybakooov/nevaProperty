@@ -1,0 +1,57 @@
+extends ../template
+block title
+  | Нева | Контакты
+block content
+  main.main
+    section.firstSolo.contacts
+      .container.contacts-row
+        .contacts-desc
+          .breadcrumbs
+            a(href="#").breadcrumbs__link
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.66667 4.33333V11H9.33333V4.33333M2.66667 4.33333L1 6M2.66667 4.33333L6 1L9.33333 4.33333M11 6L9.33333 4.33333" stroke="#242C95" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              | Главная
+            a(href="#").breadcrumbs__link 
+              <svg width="5" height="9" viewBox="0 0 5 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L4 4.5L1 8" stroke="#989898"/>
+              </svg>
+              | Контакты
+          h1.defaultTitle Контакты
+          .contacts-desc-block
+            .contacts-desc-block-item
+              p.contacts-desc-block__title Телефон:
+              a(href="+7 (812) 332-54-26").contacts-desc-block__text (812) 332-54-26
+            .contacts-desc-block-item
+              p.contacts-desc-block__title Электронная почта:
+              a(href="info@nevaproperty.ru").contacts-desc-block__text info@nevaproperty.ru
+            .contacts-desc-block-item
+              p.contacts-desc-block__title Адрес / Юр. адрес:
+              p.contacts-desc-block__text 197022, г. Санкт-Петербург, ул. Барочная, дом 12, литера А. , пом. 74-Н ,ком.3
+          .contacts-desc-block
+            .contacts-desc-block-item
+              p.contacts-desc-block__title Компания:
+              p.contacts-desc-block__text ООО "НЕВА ПРОПЕРТИ"
+            .contacts-desc-block-item
+              p.contacts-desc-block__title КПП:
+              p.contacts-desc-block__text 781301001
+            .contacts-desc-block-item
+              p.contacts-desc-block__title Расчетный счет:
+              p.contacts-desc-block__text 40702810503260008800
+            .contacts-desc-block-item
+              p.contacts-desc-block__title ОГРН:
+              p.contacts-desc-block__text 1167847131561
+            .contacts-desc-block-item
+              p.contacts-desc-block__title Банк:
+              p.contacts-desc-block__text ФИЛИАЛ N 7806 ВТБ (ПАО)
+            .contacts-desc-block-item
+              p.contacts-desc-block__title БИК:
+              p.contacts-desc-block__text 044030707
+            .contacts-desc-block-item
+              p.contacts-desc-block__title ИНН:
+              p.contacts-desc-block__text 7813246074
+            .contacts-desc-block-item
+              p.contacts-desc-block__title Корр. счет:
+              p.contacts-desc-block__text 30101810240300000707
+        .contacts-map
+          #contacts-map

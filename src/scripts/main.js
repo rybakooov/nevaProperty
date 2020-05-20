@@ -70,10 +70,44 @@ $(document).ready(function(){
       navText: ['<svg width="11" height="34" viewBox="0 0 11 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.1429 1L1 17L10.1429 33" stroke="#6F78E5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>', '<svg width="11" height="34" viewBox="0 0 11 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.999965 1L10.1428 17L0.999965 33" stroke="#6F78E5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'],
     });
   }
+
+
+  if($('.item-similar-slider').length){
+    $('.item-similar-slider').owlCarousel({
+      items: 3,
+      margin: 40,
+      nav: true,
+      navText: ['<svg width="11" height="34" viewBox="0 0 11 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.1429 1L1 17L10.1429 33" stroke="#6F78E5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>', '<svg width="11" height="34" viewBox="0 0 11 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.999965 1L10.1428 17L0.999965 33" stroke="#6F78E5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'],
+    });
+  }
+  
+
   if($('.areas-grid').length){
     $('.areas-grid').masonry({
       itemSelector: '.areas-card',
     });
+  }
+
+
+  if($('#contacts-map').length){
+    ymaps.ready(init);
+    function init(){ 
+      var myMap = new ymaps.Map("contacts-map", {
+          center: [55.76, 37.64],
+          zoom: 7
+      });
+    }
+  }
+
+
+  if($('#item-map').length){
+    ymaps.ready(init);
+    function init(){ 
+      var myMap = new ymaps.Map("item-map", {
+          center: [55.76, 37.64],
+          zoom: 7
+      });
+    }
   }
 });
 

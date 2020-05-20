@@ -1,0 +1,17 @@
+.areas-card-fav{
+  border: 1px dashed var(--lightGray);
+  border-radius: 4px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 497px;
+  &__text{
+    font-size: 18px;
+    line-height: 125%;
+    color: var(--middleGray);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}

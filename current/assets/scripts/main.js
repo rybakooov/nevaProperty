@@ -1,11 +1,14 @@
 $(document).ready(function(){
 
+  //**** FLAGS ****//
+  //* Флаг на главную страницу *//
   var index = false;
-
   if($('.header-outer').hasClass('header-outer_index')){
     index = true;
   }
 
+  //**** FUCTIONS ****//
+  //* Функция открытия меню *//
   function closeMenu(){
     $('.header-outer').find('.header-menu-burger').removeClass('header-menu-burger_active');
     $('.header-outer').removeClass('header-outer_active');
@@ -25,6 +28,7 @@ $(document).ready(function(){
     $('body').removeClass('body-overflow');
   }
   
+  //* Функция закрытия меню *//
   function openMenu(){
     $('.header-outer').find('.header-menu-burger').addClass('header-menu-burger_active');
     $('.header-outer').addClass('header-outer_active')
@@ -33,14 +37,34 @@ $(document).ready(function(){
     if(screen.width < 768){
       $('.info-outer').slideDown(300);
     }
-
     if (document.body.offsetHeight > window.innerHeight) {
       $('body').addClass('body-compensate');
       $('.header-outer').addClass('header-compensate');
     }
     $('body').addClass('body-overflow');
-
   }
+
+  //* Функция открытия поп-апа *//
+  function openPopup(){
+    if (document.body.offsetHeight > window.innerHeight) {
+      $('body').addClass('body-compensate');
+    }
+    $('body').addClass('body-overflow');
+    $('.popup').fadeIn().css('display', 'flex');
+  }
+
+  //* Функция закрытия поп-апа *//
+  function closePopup(){
+    if($('body').hasClass('body-compensate')){
+      $('body').removeClass('body-compensate')
+    }
+    $('.popup').fadeOut();
+  }
+
+
+
+  //**** EVENTS ****//
+  //* Бургер *//
   $(document).on('click', '.header-menu', function(){
     if($('.header-outer').hasClass('header-outer_active')){
       closeMenu();
@@ -49,16 +73,19 @@ $(document).ready(function(){
     }
   })
 
+  //* Задний фон меню *//
   $(document).on('click', '.header-layout', function(){
     closeMenu();
   })
 
+  //* Показать еще проекты *//
   $(document).on('click', '.projects__more', function(e){
     e.preventDefault();
     $(this).hide();
     $('.projects-carousel-item:nth-child(n+5)').show();
   })
-
+  
+  //* Раскрытие списков в мобильном меню *//
   $(document).on('click', '.menu-col__title', function(){
     if(screen.width < 768){
       $(this).toggleClass('menu-col__title_active');
@@ -66,7 +93,31 @@ $(document).ready(function(){
     }
   })
 
+  //* Открытие поп-апа [data-popup] *//
+  $(document).on('click', '[data-popup]', function(e){
+    e.preventDefault();
+    if($('.header-outer').hasClass('header-outer_active')){
+      closeMenu(openPopup());
+      return false
+    }
+    openPopup();
+  })
 
+  //* Закрытие поп-апа (клик вне) *//
+  $(document).on('click', '.popup', function(e){
+    if (this == e.target) {
+      closePopup();
+    }
+  })
+
+  
+  //* Закрытие поп-апа (клик вне) *//
+  $(document).on('click', '.popup-content__close', function(e){
+    closePopup();
+  })
+
+  //**** INITS ****//
+  //* Слайдер-баннер на главной *//
   if($('.banner').length){
     $('.banner').owlCarousel({
       items: 1,
@@ -75,6 +126,7 @@ $(document).ready(function(){
     });
   }
 
+  //* Слайдер "о компании" типовой *//
   if($('.about-full-aside-galery').length){
     $('.about-full-aside-galery').owlCarousel({
       items: 1,
@@ -85,6 +137,7 @@ $(document).ready(function(){
     });
   }
 
+  //* Слайдер проектов на главной *//
   if($('.projects-carousel').length && screen.width > 1023){
     $('.projects-carousel').owlCarousel({
       items: 4,
@@ -95,6 +148,7 @@ $(document).ready(function(){
     });
   }
   
+  //* Слайдер партнеров на главной *//
   if($('.partners-carousel').length && screen.width > 767){
     $('.partners-carousel').owlCarousel({
       items: 4,
@@ -111,7 +165,7 @@ $(document).ready(function(){
     });
   }
 
-
+  //* Слайдер с похожими товарами *//
   if($('.item-similar-slider').length && screen.width > 1023){
     $('.item-similar-slider').owlCarousel({
       items: 3,
@@ -121,14 +175,14 @@ $(document).ready(function(){
     });
   }
   
-
+  //* "Кирпичная кладка" сетки с карточками участков *//
   if($('.areas-grid').length){
     $('.areas-grid').masonry({
       itemSelector: '.areas-card',
     });
   }
 
-
+  //* Карта на странице "Контакты" *//
   if($('#contacts-map').length){
     ymaps.ready(init);
     function init(){ 
@@ -139,7 +193,7 @@ $(document).ready(function(){
     }
   }
 
-
+  //* Карта на странице "Участок" *//
   if($('#item-map').length){
     ymaps.ready(init);
     function init(){ 
@@ -150,6 +204,7 @@ $(document).ready(function(){
     }
   }
 
+  //* Карта на странице "Каталог (все участки на карте)" *//
   if($('#catalog-map').length){
     ymaps.ready(init);
     function init(){ 

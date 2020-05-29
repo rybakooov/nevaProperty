@@ -1,0 +1,29 @@
+.catalog-map{
+  margin-bottom: 0 !important;
+  &-wrap{
+    height: 900px;
+  }
+  #catalog-map{
+    height: 900px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    
+  }
+}
+
+
+@media screen and (max-width: 767px){
+  .catalog-map{
+    &-wrap{
+      height: 600px;
+    }
+    #catalog-map{
+      height: 600px;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      
+    }
+  }
+}

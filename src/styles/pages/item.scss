@@ -203,3 +203,228 @@
     }
   }
 }
+
+
+@media screen and (max-width: 1023px){
+  .item{
+    &-banner{
+      position: relative;
+      margin-bottom: 120px;
+      &-desc{
+        flex: none;
+        max-width: 100%;
+        &-bot{
+          margin-top: 40px;
+        }
+        &__title{
+          font-size: 36px;
+          margin-bottom: 40px;
+          padding-top: 24px;
+          br{
+            display: none;
+          }
+        }
+        &-block{
+          &-outer{
+            display: flex;
+          }
+          &:nth-child(1){
+            padding-right: 20px;
+          }
+          &:not(:last-child){
+            margin-bottom: 0;
+          }
+        }
+        height: auto;
+        order: 2;
+        .breadcrumbs{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          padding-left: 40px;
+          z-index: 4;
+          &:after{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+          }
+        }
+      }
+      &-container{
+        flex-direction: column;
+        height: auto;
+        min-height: 0;
+      }
+      &-map #item-map{
+        position: static;
+        width: calc(100% + 80px);
+        height: 400px;
+        margin-left: -40px;
+      }
+    }
+    &-about{
+      margin-top: 120px;
+      margin-bottom: 120px;
+      &-slider{
+        order: 2;
+        flex: 0 0 420px;
+        align-self: center;
+        .about-full-aside-galery__img{
+          height: 360px;
+        }
+      } 
+      &-desc{
+        padding-right: 24px;
+        padding-left: 0;
+        flex: 0 0 calc(100% - 420px);
+        &-items{
+          width: 100%;
+        }
+        &__item{
+          padding-right: 0;
+          width: 100%;
+        }
+      }
+    }
+    &-facts{
+      margin-top: 120px;
+      margin-bottom: 100px;
+      &-row{
+        margin: -20px;
+        width: calc(100% + 40px);
+      }
+      &-item{
+        margin: 20px;
+        width: calc(100% / 3 - 40px);
+        &__text{
+          font-size: 14px;
+          white-space: nowrap;
+        }
+      }
+    }
+    &-similar{
+      margin-top: 100px;
+      margin-bottom: 120px;
+      .filter{
+        margin-bottom: 40px;
+      }
+      &-slider{
+        display: flex;
+        margin: 0 -16px;
+        width: calc(100% + 32px);
+        .areas-card{
+          width: calc(50% - 32px);
+          margin: 0 16px;
+          &:nth-child(n+3){
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 767px){
+  .item{
+    &-banner{
+      &-map #item-map{
+        height: 320px;
+        margin-left: -16px;
+        width: calc(100% + 32px);
+      }
+      &-desc{ 
+        .breadcrumbs{
+          padding-left: 16px;
+        }
+        &-block{
+          &-outer{
+            display: block;
+          }
+          &__title{
+            margin-bottom: 8px;
+          }
+          &:not(:last-child){
+            padding-right: 0;
+            margin-bottom: 16px;
+          }
+        }
+        &__title{
+          font-size: 24px;
+          margin-bottom: 24px;
+        }
+        &-bot{
+          margin-top: 24px;
+          &__btn{
+            width: 100%;
+            &:last-child{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    &-about{
+      &-slider{
+        order: 2;
+        width: 100%;
+        flex: none;
+        .about-full-aside-galery{
+          margin-bottom: 0;
+          &__img{
+            height: 280px;
+          }
+        }
+      }
+      &-desc{
+        padding-right: 0;
+        width: 100%;
+        flex: none;
+        &__btn{
+          margin-bottom: 16px;
+          margin-top: 16px;
+          width: 100%;
+        }
+      }
+      &-container{
+        flex-direction: column;
+
+      }
+    }
+    &-facts{
+      &-row{
+        margin: 0;
+        width: 100%;
+        display: block;
+      }
+      &-item{
+        margin: 0;
+        width: 100%;
+        &:not(:last-child){
+          margin-bottom: 24px;
+        }
+      }
+    }
+    &-similar{
+      &-slider{
+        display: block;
+        width: 100%;
+        margin: 0;
+        .areas-card{
+          width: 100%;
+          margin: 0;
+          &:not(:last-child){
+            margin-bottom: 40px
+          }
+        }
+      }
+    }
+  }
+}

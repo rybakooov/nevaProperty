@@ -113,10 +113,15 @@
 }
 
 .projects{
+  &__more{
+    display: none;
+  }
   margin-bottom: 160px;
   margin-top: 160px;
   &-carousel{
     position: relative;
+    margin: -8px;
+    width: calc(100% + 16px);
     .owl-stage-outer{
       overflow: hidden;
     }
@@ -125,6 +130,14 @@
       left: -59px;
     }
     &-item{
+      padding: 8px;
+      transition: .3s;
+      border-radius: 3px;
+      &:hover{
+        @media screen and (min-width: 1024px) {
+          background-color: var(--lightBlue);
+        }
+      }
       &-img{
         width: 100%;
         padding-bottom: 100%;
@@ -172,7 +185,13 @@
       position: relative;
       box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
       border-radius: 3px;
+      transition: .3s;
       background: #FFFFFF;
+      &:hover{
+        @media screen and (min-width: 1024px) {
+          box-shadow: 1px 2px 10px rgba(111, 120, 229, 0.35);
+        }
+      }
       img{
         position: absolute;
         top: 0;
@@ -181,6 +200,288 @@
         height: 100%;
         object-fit: contain;
         object-position: center;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 1460px){
+  .partners-carousel .owl-nav,
+  .projects-carousel .owl-nav{
+    max-width: calc(100% + 60px);
+    left: -30px;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .about-num{
+    flex: 1 1 calc((100% - 240px) - 12%);
+  }
+  .areas-card{
+    width: calc(100% / 3 - 16px);
+    margin: 8px;
+  }
+  .areas-grid{
+    width: calc(100% + 16px);
+    margin: -8px;
+    margin-bottom: 60px;
+  }
+  .areas-card-desc{
+    margin: -40px 8px 0;
+  }
+}
+
+@media screen and (max-width: 1023px){
+  .banner.owlStyle {
+    .owl-nav .owl-prev, 
+    .owl-nav .owl-next{
+      padding-right: 40px;
+      padding-left: 40px;
+    }
+  }
+  .banner-item{
+    height: 540px;
+    min-height: 0;
+    max-height: none;
+    &-desc{
+      padding-left: 105px;
+      padding-right: 105px;
+      &__title{
+        font-size: 36px;
+        line-height: 41px;
+      }
+      &__text{
+        font-size: 16px;
+        line-height: 18px;
+      }
+    }
+  }
+  .about{
+    margin-top: 80px;
+    margin-bottom: 120px;
+    &-desc{
+      flex: 0 0 50%;
+    }
+    &-num{
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 50%;
+      margin-left: 0;
+      align-items: center;
+      &-item{
+        margin: 0 60px 0 auto;
+        &:not(:last-child){
+          margin-bottom: 40px !important;
+        }
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .areas{
+    margin-top: 120px;
+    margin-bottom: 120px;
+    &-grid{
+      margin: -16px -16px 40px;
+      width: calc(100% + 32px);
+    }
+    &_index{
+      .areas-card:nth-child(3){
+        display: none;
+      }
+    }
+    &-card{
+      width: calc(100% / 2 - 32px);
+      margin: 16px;
+      &-desc{
+        &__where{
+          font-size: 14px;
+          svg{
+            width: 16px;
+            margin-top: 0;
+          }
+        }
+        &-top__status{
+          font-size: 12px;
+        }
+        &-main{
+          &-top__title{
+            font-size: 20px;
+          }
+          &__item{
+            font-size: 14px;
+            svg{
+              width: 16px;
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .projects{
+    margin-top: 120px;
+    margin-bottom: 120px;
+    &-carousel{
+      display: flex;
+      flex-wrap: wrap;
+      margin: -16px;
+      width: calc(100% + 32px);
+      &-item{
+        width: calc(50% - 16px);
+        margin: 8px;
+        &:nth-child(n+5){
+          display: none;
+        }
+      }
+    }
+    .container{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__more{
+      margin: 40px auto 0;
+      display: flex;  
+    }
+  }
+  .partners{
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+}
+
+
+@media screen and (max-width: 767px){
+  .banner{
+    .owl-nav{
+      display: none;
+    }
+    .owl-dots{
+      display: flex;
+      justify-content: flex-start;
+      position: absolute;
+      padding-left: 4px;
+      padding-right: 4px;
+      width: 100%;
+      bottom: 12px;
+      .owl-dot{
+        cursor: pointer;
+        padding: 12px;
+        background: none;
+        border: none;
+        &.active{
+          span{
+            background: #242C95;
+            border-color: #242C95;
+            -webkit-box-shadow: 1px 2px 10px rgba(255,255,255,0.5);
+            box-shadow: 1px 2px 10px rgba(255,255,255,0.5);
+          }
+        }
+        span{
+          -webkit-border-radius: 50%;
+          border-radius: 50%;
+          display: block;
+          background: #FFFFFF;
+          border: 1px solid #B3B3B3;
+          width: 8px;
+          height: 8px;
+        }
+      }
+    }
+    &-item-desc{
+      padding-left: 16px;
+      padding-right: 16px;
+      &__title{
+        font-size: 30px;
+        margin-bottom: 16px;
+      }
+      &__text{
+        margin-bottom: 48px;
+      }
+    }
+  }
+  .about{
+    &-row{
+      display: block;
+    }
+    &-desc{
+      margin-bottom: 40px;
+    }
+    &-num{
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      flex-direction: row;
+      margin: -20px -16px;
+      width: calc(100% + 32px);
+      &-item{
+        width: calc(50% - 32px);
+        margin: 20px 16px !important;
+        &:not(:last-child){
+          margin-bottom: 20px !important;
+        }
+      }
+    }
+  }
+  .areas{
+    &-more{
+      margin-top: 40px;
+      &__btn{
+        width: 100%;
+      }
+    }
+    &-grid{
+      margin: 0 0 40px;
+      width: 100%;
+    }
+    &_index{
+      .areas-card:nth-child(3){
+        display: block;
+      }
+    }
+    &-card{
+      width: 100%;
+      margin: 0;
+      &:not(:last-child){
+        margin-bottom: 40px;
+      }
+    }
+  }
+  .projects{
+    &__more{
+      margin-top: 0;
+      width: 100%;
+    }
+    &-carousel{
+      width: 100%;
+      margin: 0;
+      &-item{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        &:not(:last-child){
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+  .partners{
+    &-carousel{
+      display: flex;
+      flex-wrap: wrap;
+      margin: -12px;
+      width: calc(100% + 24px);
+      &-item{
+        margin: 12px;
+        height: 140px;
+        padding-bottom: 0;
+        width: calc(50% - 24px);
+        &:nth-child(n+7){
+          display: none;
+        }
       }
     }
   }

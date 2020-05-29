@@ -25,11 +25,15 @@ table {
 .body-overflow{
   overflow: hidden;
   max-height: 100vh;
+}
+
+.body-compensate{
   @media screen and (min-width: 1024px){
     //**** Compensate scroll-bar ****//
     padding-right: 17px;
   }
 }
+
 body{
   display: flex;
   flex-direction: column;
@@ -88,6 +92,7 @@ body{
     font-size: 14px;
     line-height: 120%;
     color: var(--middleGray);
+    
     svg{
       margin: 0 8px;
     }
@@ -104,6 +109,9 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  svg path{
+    transition: .3s;
+  }
   &__miss{
     width: 40px;
     height: 40px;
@@ -123,12 +131,22 @@ body{
     justify-content: center;
     font-weight: 500;
     font-size: 16px;
+    transition: .3s;
     margin: 0 4px;
     line-height: 19px;
     color: var(--middleGray);
     background-color: var(--white);
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
+    &:not(.pagination__arr_disabled):not(.pagination__arr_page_ACTIVE):hover{
+      @media screen and (min-width: 1024px) {
+        background-color: var(--purple);
+        color: var(--white);
+        svg path{
+          stroke: var(--white);
+        }
+      }
+    }
     &_prev{
       margin-right: 20px;
     } 
@@ -172,8 +190,22 @@ body{
   border-radius: 3px;
   font-weight: 500;
   font-size: 16px;
+  transition: .3s;
   line-height: 125%;
   cursor: pointer;
+  &:hover{
+    @media screen and (min-width: 1024px) {
+      background-color: var(--purple);
+      border-color: var(--purple);
+    }
+  }
+  &:active{
+    @media screen and (min-width: 1024px) {
+      
+      background-color: var(--blue);
+      border-color: var(--blue);
+    }
+  }
   svg{
     margin-right: 8px;
   }
@@ -187,6 +219,17 @@ body{
   &_white{
     background-color: var(--white);
     color: var(--blue);
+    &:hover{
+      @media screen and (min-width: 1024px) {
+        background-color: var(--lightBlue);
+        border-color: var(--blue);
+      }
+    }
+    &:active{
+      @media screen and (min-width: 1024px) {
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+    }
     &_light{
       border-width: 1px;
       font-weight: normal;
@@ -197,6 +240,17 @@ body{
       color: var(--purple);
       font-weight: normal;
       border-color: var(--purple);
+      &:hover{
+        @media screen and (min-width: 1024px) {
+          background-color: var(--lightBlue);
+          
+        }
+      }
+      &:active{
+        @media screen and (min-width: 1024px) {
+          box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+      }
     }
   }
 }
@@ -204,8 +258,13 @@ body{
 .filter{
   display: flex;
   margin-bottom: 40px;
+  &-left{
+    display: flex;
+  }
   &-label{
-    margin-right: 16px;
+    &:not(:last-child){
+      margin-right: 16px;
+    }
     input{
       display: none;
       &:checked + .filter-button{
@@ -217,6 +276,14 @@ body{
   &-right{
     display: flex;
     margin-left: auto;
+    .filter__link_sphere{
+      display: none;
+    }
+    .filter__link_map{
+      &:after{
+        content: 'Показать на карте';
+      }
+    }
   }
   &-button{
     color: var(--middleGray);
@@ -228,6 +295,16 @@ body{
     padding: 11px 16px;
     transition: .3s;
     cursor: pointer;
+    &_where{
+      &:after{
+        content: 'По местоположению';
+      }
+    }
+    &:hover{
+      @media screen and (min-width: 1024px) {
+        color: var(--purple);
+      }
+    }
   }
   &__link{
     &:not(:last-child){
@@ -323,6 +400,7 @@ body{
         &__status{
           font-size: 14px;
           line-height: 150%;
+          text-align: right;
           color: var(--middleGray)
         }
       }
@@ -426,6 +504,12 @@ body{
         padding: 10px 16px;
         cursor: pointer;
         transition: .3s;
+        &:hover{
+          @media screen and (min-width: 1024px) {
+            border-color: var(--purple);
+            color: var(--purple);
+          }
+        }
       }
       &-label{
         margin: 8px;
@@ -477,6 +561,11 @@ body{
           }
 
           &:hover{
+            @media screen and (min-width: 1024px) {
+              border-color: var(--purple);
+            }
+          }
+          &:focus{
             border-color: var(--purple);
           }
         }
@@ -521,5 +610,104 @@ body{
       width: 120%;
       max-width: none;
     }
+  }
+}
+
+@media screen and (max-width: 1460px){
+  .owlStyle .owl-nav .owl-prev, 
+  .owlStyle .owl-nav .owl-next{
+    padding: 24px 8px;
+  }
+}
+
+
+@media screen and (max-width: 1023px){
+  .filter{
+    &-left{
+      display: none;
+    }
+    &-right{
+      margin-left: 0;
+      .filter__link_sphere{
+        display: flex;
+      }
+    } 
+  }
+  .form{
+    margin-top: 120px;
+    margin-bottom: 120px;
+    &-img{
+      display: none;
+    }
+    &-col .form-inputs .form-input_half{
+      width: calc(50% - 12px);
+    }
+  }
+  .firstSolo{
+    margin-top: 74px !important;
+    margin-bottom: 120px !important;
+  }
+  .breadcrumbs{
+    padding-top: 16px;
+  }
+}
+
+
+@media screen and (max-width: 767px){
+  .container{
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  .defaultTitle{
+    font-size: 24px;
+    line-height: 125%;
+  }
+
+  .form{
+    &-row{
+      margin-top: 40px;
+    }
+    &-col {
+      .form-bottom{
+        margin-top: 40px;
+        display: block;
+        .btn{
+          margin-right: 0;
+          width: 100%;
+        }
+        &__text{
+          text-align: center;
+          margin-top: 16px;
+        }
+      }
+      .form-inputs{
+        .form-input{
+          margin-top: 32px;
+          &_half{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .firstSolo{
+    margin-top: 72px !important;
+  }
+  .breadcrumbs{
+    margin-bottom: 24px;
+  }
+  .pagination__arr_next{
+    margin-left: 8px;
+  }
+  .pagination__arr_prev{
+    margin-right: 8px;
+  }
+  .filter-button_where:after{
+    content: 'По месту';
+  }
+  .main__title{
+    font-size: 24px;
+    line-height: 125%;
+    margin-bottom: 24px;
   }
 }

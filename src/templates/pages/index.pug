@@ -41,39 +41,44 @@ block content
             .about-num-item
               p.about-num-item__NUM 11
               p.about-num-item__text Коттеджных посёлков<br>в лучших районах<br>Ленинградской области
-    section.areas
+    section.areas.areas_index
       .container
         p.defaultSup Доступные объекты
         p.defaultTitle Участки в продаже
         form.filter
-          label.filter-label 
-            input#filterRadio__all(type="radio", checked, name="filterRadio")
-            .filter-button Все
-          label.filter-label 
-            input#filterRadio__azc(type="radio", name="filterRadio")
-            .filter-button АЗС
-          label.filter-label 
-            input#filterRadio__sto(type="radio", name="filterRadio")
-            .filter-button СТО
-          label.filter-label 
-            input#filterRadio__carwash(type="radio", name="filterRadio")
-            .filter-button Мойки
-          label.filter-label 
-            input#filterRadio__restaurant(type="radio", name="filterRadio")
-            .filter-button Рестораны
-          label.filter-label 
-            input#filterRadio__sto(type="radio", name="filterRadio")
-            .filter-button Склады
-          label.filter-label 
-            input#filterRadio__shop(type="radio", name="filterRadio")
-            .filter-button Магазины
+          .filter-left
+            label.filter-label 
+              input#filterRadio__all(type="radio", checked, name="filterRadio")
+              .filter-button Все
+            label.filter-label 
+              input#filterRadio__azc(type="radio", name="filterRadio")
+              .filter-button АЗС
+            label.filter-label 
+              input#filterRadio__sto(type="radio", name="filterRadio")
+              .filter-button СТО
+            label.filter-label 
+              input#filterRadio__carwash(type="radio", name="filterRadio")
+              .filter-button Мойки
+            label.filter-label 
+              input#filterRadio__restaurant(type="radio", name="filterRadio")
+              .filter-button Рестораны
+            label.filter-label 
+              input#filterRadio__sto(type="radio", name="filterRadio")
+              .filter-button Склады
+            label.filter-label 
+              input#filterRadio__shop(type="radio", name="filterRadio")
+              .filter-button Магазины
           .filter-right
-            a(href="#").btn.btn_p16.btn_white_lightBlue.filter__link
+            a(href="#").btn.btn_p16.btn_white_lightBlue.filter__link.filter__link_sphere
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.78571 18H3.03571V18.75H3.78571V18ZM3.78571 9.85714H4.53571V9.10714H3.78571V9.85714ZM1.5 9.85714L0.974469 9.32206C0.757169 9.53548 0.690517 9.85912 0.805805 10.141C0.921092 10.4229 1.19542 10.6071 1.5 10.6071L1.5 9.85714ZM9.5 2L10.0255 1.46491L9.5 0.948767L8.97447 1.46491L9.5 2ZM17.5 9.85714V10.6071C17.8046 10.6071 18.0789 10.4229 18.1942 10.141C18.3095 9.85912 18.2428 9.53548 18.0255 9.32206L17.5 9.85714ZM15.2143 9.85714V9.10714H14.4643V9.85714H15.2143ZM15.2143 18V18.75H15.9643V18H15.2143ZM11.2143 18H10.4643V18.75H11.2143V18ZM11.2143 12.2857H11.9643V11.5357H11.2143V12.2857ZM7.78571 12.2857V11.5357H7.03571V12.2857H7.78571ZM7.78571 18V18.75H8.53571V18H7.78571ZM4.53571 18V9.85714H3.03571V18H4.53571ZM3.78571 9.10714H1.5V10.6071H3.78571V9.10714ZM2.02553 10.3922L10.0255 2.53509L8.97447 1.46491L0.974469 9.32206L2.02553 10.3922ZM8.97447 2.53509L16.9745 10.3922L18.0255 9.32206L10.0255 1.46491L8.97447 2.53509ZM17.5 9.10714H15.2143V10.6071H17.5V9.10714ZM14.4643 9.85714V18H15.9643V9.85714H14.4643ZM15.2143 17.25H11.2143V18.75H15.2143V17.25ZM11.9643 18V12.2857H10.4643V18H11.9643ZM11.2143 11.5357H7.78571V13.0357H11.2143V11.5357ZM7.03571 12.2857V18H8.53571V12.2857H7.03571ZM7.78571 17.25H3.78571V18.75H7.78571V17.25Z" fill="#6F78E5"/>
+              </svg>
+              | Сфера
+            a(href="#").btn.btn_p16.btn_white_lightBlue.filter__link.filter__link_map
               <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13.1905 7.09524C13.1905 10.4615 8.61905 16.2381 7.09524 17C5.57143 16.2381 1 10.4615 1 7.09524C1 3.72893 3.72893 1 7.09524 1C10.4615 1 13.1905 3.72893 13.1905 7.09524Z" stroke="#6F78E5" stroke-width="1.5"/>
                 <path d="M9.38095 7.09524C9.38095 8.3576 8.3576 9.38095 7.09524 9.38095C5.83287 9.38095 4.80952 8.3576 4.80952 7.09524C4.80952 5.83287 5.83287 4.80952 7.09524 4.80952C8.3576 4.80952 9.38095 5.83287 9.38095 7.09524Z" stroke="#6F78E5" stroke-width="1.5"/>
               </svg>
-              | Показать на карте
         .areas-grid
           a(href="#").areas-card
             .areas-card-map
@@ -210,6 +215,7 @@ block content
                 <path d="M1 6.77273L5.22729 11L13.5 1" stroke="#242C95" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               | АЗС на Витебском проспекте
+        a(href="#").btn.btn_white.btn_white_light.projects__more Все реализованные проекты
     section.partners
       .container
         p.defaultSup Успешное взаимодействие

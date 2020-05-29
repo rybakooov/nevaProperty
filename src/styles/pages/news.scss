@@ -56,3 +56,33 @@
     }
   }
 }
+
+
+@media screen and (max-width: 1023px){
+  .news-grid{
+    margin: -12px -12px 68px;
+    width: calc(100% + 24px);
+
+  }
+  .news-card{
+    width: calc(50% - 8px);
+    margin: 4px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .news{
+    &-grid{
+      width: 100%;
+      margin: 0 0 40px;
+    }
+    &-card{
+      margin: 0;
+      width: 100%;
+      padding: 0;
+      &:not(:last-child){
+        margin-bottom: 40px;
+      }
+    }
+  }
+}

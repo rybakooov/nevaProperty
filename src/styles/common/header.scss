@@ -17,6 +17,12 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 5;
   }
+  &-compensate{
+    @media screen and (min-width: 1024px){
+      //**** Compensate scroll-bar ****//
+      padding-right: 17px;
+    }
+  }
   &-outer{
     transition-property: background-color;
     transition-duration: .3s;
@@ -52,12 +58,6 @@
       background-color: #FCFCFC;
       box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
       border-radius: 0 0 3px 3px;
-      
-      @media screen and (min-width: 1024px){
-
-        //**** Compensate scroll-bar ****//
-        padding-right: 17px;
-      }
       .header-logo svg g path{
         fill: var(--black);
       }
@@ -197,6 +197,9 @@
   &-outer{
     width: 100%;
     display: none;
+    .header-links{
+      display: none;
+    }
   }
   display: flex;
   &-col{
@@ -239,10 +242,177 @@
       font-size: 18px;
       line-height: 125%;
       color: var(--black);
-      transition: .3s;
-      &:hover{
-        @media screen and (min-width: 1024px) {
-          color: var(--purple);
+      svg{
+        display: none;
+      }
+    }
+  }
+}
+
+.info-outer{
+  display: none;
+}
+
+
+@media screen and (max-width: 1023px){
+  .header{
+    &-menu{
+      order: 2;
+      padding: 0 16px;
+      align-self: stretch;
+      margin-right: -16px;
+      &-burger{
+        margin-right: 0;
+        &_active span:nth-child(2){
+          transform: translateX(50px);
+        }
+      }
+      p{
+        display: none;
+      }
+    }
+    &-info{
+      margin-left: auto;
+      margin-right: 40px;
+    }
+    &-links{
+      display: none;
+    }
+    &-outer{
+      max-height: 100%;
+      .container{    
+        overflow: hidden;
+      }
+      &_active{
+        .header{
+          padding-bottom: 24px;
+        }
+      }
+    }
+    &-logo{
+      svg{
+        width: auto;
+        height: 40px;
+      }
+    }
+  }
+  .menu{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 20px;
+    padding-bottom: 40px;
+    &-outer{
+      max-height: calc(100vh - 82px);
+      overflow: auto;
+      .header-links{
+        display: flex;
+        &__link{
+          flex: 0 0 50%;
+          border-top: 1px solid var(--lightGray);
+          padding-top: 40px;
+          padding-bottom: 20px;
+          &:not(:last-child){
+            margin-right: 0;
+          }
+        }
+      }
+    }
+    &-col{
+      border-top: none;
+      padding: 0;
+      &:nth-child(2){  
+        grid-row-start: 1; 
+        grid-row-end: 3; 
+        grid-column-start: 2;   
+        grid-column-end: 4; 
+        .menu-col-links{
+          display: block;
+          margin: 0;
+          width: 100%;
+        }
+        .menu-col__link{
+          margin: 0;
+          width: 100%;
+          &:not(:last-child){
+            margin-bottom: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 767px){
+  .header{
+    width: 100%;
+    &-outer{
+      display: flex;
+      flex-direction: column;
+      .container{
+        width: 100%;
+        flex-shrink: 0;
+      }
+      &_active .header{
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--lightGray);
+      }
+    }
+    .header-info{
+      display: none;
+    }
+  }
+  .menu{
+    display: block;
+    padding-top: 40px;
+    padding-bottom: 24px;
+    &-outer{
+      .header-links__link{
+        padding-bottom: 40px;
+        border-bottom: 1px solid var(--lightGray);
+        border-top: none;
+      }
+    }
+    &-col{
+      &:not(:last-child){
+        margin-bottom: 40px;
+      }
+      &__title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &_active{
+          svg{
+            transform: rotate(180deg);
+          }
+        }
+        svg{
+          display: block;
+          transition: .3s;
+        }
+      }
+    }
+    .menu-col{
+      .menu-col-links{
+        display: none;
+
+      }
+    }
+  }
+  .info{
+    &-outer{
+      .header-info{
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        border-top: 1px solid var(--lightGray);
+        &-work{
+          margin-right: 0;
+        }
+        &__call{
+          margin-top: 16px;
         }
       }
     }

@@ -39,3 +39,23 @@
     }
   }
 }
+
+
+@media screen and (max-width: 1023px){
+  .article-banner{
+    height: 220px;
+  }
+  .article{
+    .about-full-aside-galery__img{
+      height: 270px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px){
+  .article{
+    .about-full-aside-galery__img{
+      height: 320px;
+    }
+  }
+}

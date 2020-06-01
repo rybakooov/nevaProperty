@@ -12,6 +12,35 @@
   }
 }
 
+.mapboxgl-popup-content{
+  padding: 0 !important;
+}
+.mapboxgl-popup {
+  max-width: none !important;
+}
+.mapboxgl-popup-content {
+  /*text-align: дуае;*/
+  font-family: 'Open Sans', sans-serif;
+}
+.mapboxgl-popup-close-button{
+  left: 100% !important;
+  bottom: 100% !important;
+  top: auto !important;
+  right: auto !important;
+  font-size: 44px !important;
+  line-height: 100% !important;
+  height: 44px !important;
+  width: 44px !important;
+}
+
+//iconImageHref: 'assets/images/placemark.png',
+//iconImageSize: [36, 47],*/
+.marker{
+  width: 36px;
+  height: 47px;
+  cursor: pointer;
+  background-image: url('../images/placemark.png');
+}
 
 @media screen and (max-width: 767px){
   .catalog-map{
@@ -23,7 +52,6 @@
       position: absolute;
       left: 0;
       width: 100%;
-      
     }
   }
 }

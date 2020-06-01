@@ -9,6 +9,12 @@
   --middleGray: #989898;
   --superLightGray: #EFEFEF;
 }
+.input-err{
+  border-color: #E56F6F !important;
+}
+.input-border{
+  border-color: var(--darkGray) !important;
+}
 
 table {
   border-collapse: collapse;
@@ -47,7 +53,7 @@ body{
 }
 .firstSolo{
   margin-top: 84px !important;
-  margin-bottom: 160px !important;
+  margin-bottom: 120px !important;
 }
 .owlStyle{
   
@@ -395,6 +401,17 @@ body{
       box-shadow: 1px 2px 10px rgba(111, 120, 229, 0.1);
       border-radius: 3px;
       pointer-events: all;
+      &_baloon{
+        margin: 0;
+        width: 400px;
+        /*.areas-card-desc-top,
+        .areas-card-desc-main{
+          border-bottom: none;
+        }*/
+        .areas-card-desc-main-top__fav{
+          cursor: pointer;
+        }
+      }
       &-top{
         display: flex;
         justify-content: space-between;
@@ -477,8 +494,8 @@ body{
 
 
 .form{
-  margin-top: 160px;
-  margin-bottom: 168px;
+  margin-top: 120px;
+  margin-bottom: 128px;
   overflow: hidden;
   &-row{
     display: flex;
@@ -651,6 +668,159 @@ body{
       max-width: 530px;
     }
   }
+
+  &-filter{
+    max-width: 584px;
+    width: calc(100% + 40px);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px -20px -20px;
+    &-input{
+      margin: 20px;
+      width: calc(50% - 40px);
+      &_sphere{
+        display: none;
+      }
+      &_square{
+        .popup-filter-input-box{
+          border: 1px solid var(--lightGray);
+          border-radius: 3px;
+        }
+        .popup-filter-input-selector{
+          width: 60px;
+          border: none;
+          border-radius: 0 3px 3px 0;
+          border-left: 1px solid var(--lightGray);
+          position: static;
+        }
+      }
+      &__text{
+        font-size: 16px;
+        line-height: 18px;
+        color: var(--darkGray);
+        margin-bottom: 8px;
+      }
+      &-box{
+        width: 100%;
+        height: 40px;
+        position: relative;
+        display: flex;
+        & > input{
+          border: none;
+          padding-left: 8px;
+          flex: 1;
+          min-width: 0;
+          display: block;
+          -moz-appearance:textfield;
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button{
+            -webkit-appearance: none;
+          }
+        }
+        &__text{
+          padding-left: 16px;
+          align-self: center;
+          color: var(--darkGray);
+        }
+      }
+      &-selector{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid var(--lightGray);
+        border-radius: 3px;
+        transition: .3s;
+        &_notEmpty{
+          .popup-filter-input-selector-view span{
+            color: var(--black);
+          }
+        }
+        &_active{
+          z-index: 10;
+          box-shadow: 1px 2px 10px rgba(111, 120, 229, 0.1);
+          border-color: transparent;
+          .popup-filter-input-selector-options{
+            display: block;
+            border-top: 1px solid var(--superLightGray);
+          }
+        }
+        &-view{
+          cursor: pointer;
+          padding: 0 16px;
+          height: 38px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          transition: .3s;
+          color: var(--darkGray);
+          span{
+            font-size: 16px;
+            line-height: 18px;
+            color: var(--darkGray);
+          }
+          &:hover{
+            @media screen and (min-width: 1024px) {
+              box-shadow: 1px 2px 10px rgba(111, 120, 229, 0.1);
+            }
+          }
+        }
+        &-options{
+          display: none;
+          background-color: #fff;
+          border-radius: 0 0 3px 3px;
+          width: 100%;
+          padding: 8px 0;
+          &__item{
+            padding: 8px 16px;
+            font-size: 16px;
+            line-height: 18px;
+            cursor: pointer;
+            color: var(--lightGray);
+            transition: .3s;
+            &:hover{
+              @media screen and (min-width: 1024px) {
+                background-color: var(--lightBlue);
+                color: var(--purple);
+              }
+            }
+            &_choosen{
+              color: var(--black);
+              /*font-weight: 700;*/
+            }
+          }
+        }
+      }
+    }
+    &-bot{
+      margin: 20px;
+      width: calc(100% + 40px);
+      display: flex;
+      align-items: center;
+      &__var{
+        margin-right: auto;
+        font-size: 16px;
+        line-height: 125%;
+        color: var(--black);
+      }
+      &__btn{
+        &:not(:last-child){
+          margin-right: 24px;
+        }
+        &_cancel{
+          border: 1px solid #E56F6F;
+          color: #E56F6F;
+          &:hover{
+            @media screen and (min-width: 1024px){
+              border-color: #E56F6F;
+              color: #E56F6F;
+              background-color: lighten($color: #E56F6F, $amount: 30);
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 
@@ -675,8 +845,8 @@ body{
     } 
   }
   .form{
-    margin-top: 120px;
-    margin-bottom: 120px;
+    margin-top: 80px;
+    margin-bottom: 80px;
     &-img{
       display: none;
     }
@@ -686,7 +856,7 @@ body{
   }
   .firstSolo{
     margin-top: 74px !important;
-    margin-bottom: 120px !important;
+    margin-bottom: 80px !important;
   }
   .breadcrumbs{
     padding-top: 16px;
@@ -762,5 +932,39 @@ body{
     font-size: 24px;
     line-height: 125%;
     margin-bottom: 24px;
+  }
+
+  .popup{
+    &-content{
+      padding: 40px 16px;
+      max-height: calc(100vh - 40px);
+      overflow: auto;
+    }
+    &-filter{
+      display: block;
+      padding-top: 40px;
+      width: 100%;
+      margin: 0;
+      &-input{
+        width: 100%;
+        margin: 0;
+        &:not(:last-child){
+          margin-bottom: 24px;
+        }
+      }
+      &-bot{
+        display: block;
+        margin: 0;
+        width: 100%;
+        &__var{
+          display: flex;
+          margin-bottom: 24px;
+          align-items: center;
+          span{
+            margin-left: auto;
+          }
+        }
+      }
+    }
   }
 }

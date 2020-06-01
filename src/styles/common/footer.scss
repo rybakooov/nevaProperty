@@ -11,7 +11,10 @@
     flex: 1;
   }
 
-  &-linklist, &__agreement{
+  &-linklist{
+    flex: 3;
+  }
+  &__agreement{
     flex: 2;
   }
 

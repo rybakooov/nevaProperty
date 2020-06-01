@@ -8,6 +8,8 @@
     <script src="assets/scripts/jquery.min.js"></script>
     <script src="assets/scripts/owl.carousel.min.js"></script>
     <script src="assets/scripts/masonry.min.js"></script>
+    <script src="assets/scripts/supaform.js"></script><script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
     <script src="assets/scripts/main.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=50f3a4af-2ecd-40f1-85ef-0e719fc2122b&amp;lang=ru_RU" type="text/javascript"></script>
     <title> Нева | Каталог объектов
@@ -67,7 +69,7 @@
           <div class="header-info">
             <div class="header-info-work"><a class="header-info-work__phone" href="tel: +7 (812) 332-54-26">+7 (812) 332-54-26</a>
               <p class="header-info-work__time">Пн-Вс с 9<sup>00</sup> до 21<sup>00</sup></p>
-            </div><a class="btn btn_white header-info__call" href="#" data-popup="data-popup">Заказать звонок</a>
+            </div><a class="btn btn_white header-info__call" href="#" data-popup="#popup">Заказать звонок</a>
           </div>
         </div>
       </div>
@@ -113,7 +115,7 @@
           <div class="header-info">
             <div class="header-info-work"><a class="header-info-work__phone" href="tel: +7 (812) 332-54-26">+7 (812) 332-54-26</a>
               <p class="header-info-work__time">Пн-Вс с 9<sup>00</sup> до 21<sup>00</sup></p>
-            </div><a class="btn btn_white header-info__call" href="#" data-popup="data-popup">Заказать звонок</a>
+            </div><a class="btn btn_white header-info__call" href="#" data-popup="#popup">Заказать звонок</a>
           </div>
         </div>
       </div>
@@ -182,7 +184,7 @@
         </section>
       </main>
     </div>
-    <div class="popup">
+    <div class="popup" id="popup">
       <div class="popup-content">
         <div class="popup-content-head">
           <p class="popup-content__title">Закажите звонок</p><a class="popup-content__close" href="#"><svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -193,22 +195,132 @@
           <div class="form-inputs">
             <div class="form-inputs-row">
               <div class="form-input form-input_half">
-                <input id="clientName" type="text" name="clientName" placeholder="&amp;nbsp;"/>
-                <label for="clientName">Имя</label>
+                <input id="clientName_popup" data-required="" type="text" name="clientName" placeholder="&amp;nbsp;"/>
+                <label for="clientName_popup">Имя</label>
               </div>
               <div class="form-input form-input_half">
-                <input id="clientPhone" type="text" name="clientPhone" placeholder="&amp;nbsp;"/>
-                <label for="clientPhone">Телефон</label>
+                <input id="clientPhone_popup" data-required="" data-type="tel" type="text" name="clientPhone_popup" placeholder="&amp;nbsp;"/>
+                <label for="clientPhone_popup">Телефон</label>
               </div>
               <div class="form-input">
-                <input id="clientCompany" type="text" name="clientCompany" placeholder="&amp;nbsp;"/>
-                <label for="clientCompany">Компания</label>
+                <input id="clientCompany_popup" data-required="" type="text" name="clientCompany_popup" placeholder="&amp;nbsp;"/>
+                <label for="clientCompany_popup">Компания</label>
               </div>
             </div>
           </div>
           <div class="form-bottom">
-            <button class="btn" type="submit">Заказать звонок</button>
+            <button class="btn" type="submit" data-type="submit">Заказать звонок</button>
             <p class="form-bottom__text">Отправляя данное сообщение, Вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="popup" id="filter-popup">
+      <div class="popup-content">
+        <div class="popup-content-head">
+          <p class="popup-content__title">Фильтр</p><a class="popup-content__close" href="#"><svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 18L9.5 9.5M18 1L9.5 9.5M9.5 9.5L18 18M9.5 9.5L1 1" stroke="#989898" stroke-width="1.5"/>
+</svg></a>
+        </div>
+        <form class="popup-filter">
+          <div class="popup-filter-input popup-filter-input_square">
+            <p class="popup-filter-input__text">Площадь</p>
+            <div class="popup-filter-input-box">
+              <p class="popup-filter-input-box__text">от</p>
+              <input type="number" min="0" max="999"/>
+              <p class="popup-filter-input-box__text">до</p>
+              <input type="number" min="0" max="999"/>
+              <div class="popup-filter-input-selector popup-filter-input-selector_notEmpty">
+                <input type="hidden"/>
+                <div class="popup-filter-input-selector-view"><span>Га</span><svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 1L5 5L1 1" stroke="#6B6B6B"/>
+</svg>
+                </div>
+                <div class="popup-filter-input-selector-options"> 
+                  <p class="popup-filter-input-selector-options__item popup-filter-input-selector-options__item_choosen">Га</p>
+                  <p class="popup-filter-input-selector-options__item">Км<sup>2</sup></p>
+                  <p class="popup-filter-input-selector-options__item">А</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popup-filter-input">
+            <p class="popup-filter-input__text">Сортировка</p>
+            <div class="popup-filter-input-box">
+              <div class="popup-filter-input-selector popup-filter-input-selector_notEmpty">
+                <input type="hidden"/>
+                <div class="popup-filter-input-selector-view"><span>По площади</span><svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 1L5 5L1 1" stroke="#6B6B6B"/>
+</svg>
+                </div>
+                <div class="popup-filter-input-selector-options"> 
+                  <p class="popup-filter-input-selector-options__item popup-filter-input-selector-options__item_choosen">По площади</p>
+                  <p class="popup-filter-input-selector-options__item">По стоимости</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popup-filter-input">
+            <p class="popup-filter-input__text">Наличие коммуникаций</p>
+            <div class="popup-filter-input-box">
+              <div class="popup-filter-input-selector" data-multiple="data-multiple">
+                <input type="hidden"/>
+                <div class="popup-filter-input-selector-view"><span>Наличие коммуникаций</span><svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 1L5 5L1 1" stroke="#6B6B6B"/>
+</svg>
+                </div>
+                <div class="popup-filter-input-selector-options"> 
+                  <p class="popup-filter-input-selector-options__item">Газ</p>
+                  <p class="popup-filter-input-selector-options__item">Вода</p>
+                  <p class="popup-filter-input-selector-options__item">Электроэнергия</p>
+                  <p class="popup-filter-input-selector-options__item">Канализация</p>
+                  <p class="popup-filter-input-selector-options__item">Скважина</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popup-filter-input">
+            <p class="popup-filter-input__text">Ключевые факты</p>
+            <div class="popup-filter-input-box">
+              <div class="popup-filter-input-selector" data-multiple="data-multiple">
+                <input type="hidden"/>
+                <div class="popup-filter-input-selector-view"><span>Ключевые факты</span><svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 1L5 5L1 1" stroke="#6B6B6B"/>
+</svg>
+                </div>
+                <div class="popup-filter-input-selector-options"> 
+                  <p class="popup-filter-input-selector-options__item">Газ</p>
+                  <p class="popup-filter-input-selector-options__item">Вода</p>
+                  <p class="popup-filter-input-selector-options__item">Электроэнергия</p>
+                  <p class="popup-filter-input-selector-options__item">Канализация</p>
+                  <p class="popup-filter-input-selector-options__item">Скважина</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popup-filter-input popup-filter-input_sphere">
+            <p class="popup-filter-input__text">Сфера применения</p>
+            <div class="popup-filter-input-box">
+              <div class="popup-filter-input-selector" data-multiple="data-multiple">
+                <input type="hidden"/>
+                <div class="popup-filter-input-selector-view"><span>Сфера применения</span><svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 1L5 5L1 1" stroke="#6B6B6B"/>
+</svg>
+                </div>
+                <div class="popup-filter-input-selector-options"> 
+                  <p class="popup-filter-input-selector-options__item">Газ</p>
+                  <p class="popup-filter-input-selector-options__item">Вода</p>
+                  <p class="popup-filter-input-selector-options__item">Электроэнергия</p>
+                  <p class="popup-filter-input-selector-options__item">Канализация</p>
+                  <p class="popup-filter-input-selector-options__item">Скважина</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popup-filter-bot">
+            <p class="popup-filter-bot__var">Найдено: <span>32 варианта</span></p>
+            <button class="btn btn_white popup-filter-bot__btn popup-filter-bot__btn_cancel">Сбросить</button>
+            <button class="btn popup-filter-bot__btn popup-filter-bot__btn_submit">Фильтровать</button>
           </div>
         </form>
       </div>
@@ -253,19 +365,26 @@
 </svg>
           </div>
           <nav class="footer-linklist"><a class="footer-linklist__link" href="#">Доступные объекты</a><a class="footer-linklist__link" href="#">О нас</a><a class="footer-linklist__link" href="#">Цели использования</a><a class="footer-linklist__link" href="#">География присутствия</a></nav>
-          <div class="footer-social"><a class="footer-social__link" href="#"><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect y="0.449951" width="30" height="30" fill="#55ACEE"/>
-<path d="M15.001 30.45C23.2852 30.45 30.001 23.7342 30.001 15.45C30.001 7.16568 23.2852 0.449951 15.001 0.449951C6.71671 0.449951 0.000976562 7.16568 0.000976562 15.45C0.000976562 23.7342 6.71671 30.45 15.001 30.45Z" fill="#55ACEE"/>
-<path d="M24.189 11.2299C23.5462 11.515 22.8548 11.7078 22.1296 11.7939C22.87 11.3503 23.4382 10.6484 23.7064 9.81063C23.0136 10.2216 22.2459 10.5197 21.4296 10.6804C20.7755 9.98389 19.8437 9.54858 18.8118 9.54858C16.8321 9.54858 15.2264 11.1543 15.2264 13.134C15.2264 13.415 15.2582 13.6886 15.3197 13.9511C12.34 13.8017 9.69788 12.3744 7.92937 10.2045C7.6208 10.7339 7.44379 11.3503 7.44379 12.0072C7.44379 13.2509 8.07723 14.3488 9.03876 14.9916C8.45131 14.9731 7.89808 14.8119 7.41491 14.5426C7.41464 14.5579 7.41464 14.5731 7.41464 14.5881C7.41464 16.3253 8.65105 17.7743 10.2909 18.1034C9.9904 18.1858 9.67301 18.2294 9.34653 18.2294C9.11497 18.2294 8.89063 18.2072 8.67191 18.1655C9.12807 19.5896 10.4519 20.6263 12.0212 20.6554C10.7939 21.6172 9.24813 22.1902 7.56786 22.1902C7.27908 22.1902 6.99297 22.1734 6.71301 22.1399C8.2989 23.1576 10.184 23.751 12.2087 23.751C18.8035 23.751 22.4101 18.2877 22.4101 13.5493C22.4101 13.3939 22.4066 13.2391 22.3997 13.0856C23.1008 12.5802 23.7085 11.9489 24.189 11.2299Z" fill="#F1F2F2"/>
-</svg></a><a class="footer-social__link" href="#"><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect y="0.449951" width="30" height="30" fill="#3B5998"/>
-<path d="M15.001 30.45C23.2852 30.45 30.001 23.7342 30.001 15.45C30.001 7.16568 23.2852 0.449951 15.001 0.449951C6.71671 0.449951 0.000976562 7.16568 0.000976562 15.45C0.000976562 23.7342 6.71671 30.45 15.001 30.45Z" fill="#3B5998"/>
-<path d="M18.772 16.037H16.0954V25.8427H12.0402V16.037H10.1115V12.5909H12.0402V10.3609C12.0402 8.76619 12.7977 6.26904 16.1315 6.26904L19.1354 6.28161V9.62665H16.9559C16.5984 9.62665 16.0957 9.80527 16.0957 10.566V12.5941H19.1263L18.772 16.037Z" fill="#FEFEFE"/>
-</svg></a><a class="footer-social__link" href="#"><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect y="0.449951" width="30" height="30" fill="#4D76A1"/>
-<path d="M15.001 30.45C23.2852 30.45 30.001 23.7342 30.001 15.45C30.001 7.16568 23.2852 0.449951 15.001 0.449951C6.71671 0.449951 0.000976562 7.16568 0.000976562 15.45C0.000976562 23.7342 6.71671 30.45 15.001 30.45Z" fill="#4D76A1"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M14.4344 22.0289H15.6117C15.6117 22.0289 15.9673 21.9899 16.1489 21.7941C16.316 21.6145 16.3106 21.277 16.3106 21.277C16.3106 21.277 16.2876 19.6973 17.0208 19.4647C17.7436 19.2355 18.6717 20.9914 19.6554 21.6666C20.3993 22.1776 20.9645 22.0655 20.9645 22.0655L23.5948 22.0289C23.5948 22.0289 24.9708 21.9442 24.3184 20.8623C24.2649 20.7738 23.9384 20.062 22.3627 18.5994C20.7135 17.0686 20.9343 17.3162 22.921 14.6682C24.131 13.0556 24.6147 12.0711 24.4636 11.6494C24.3195 11.2478 23.4296 11.3539 23.4296 11.3539L20.468 11.3724C20.468 11.3724 20.2485 11.3424 20.0856 11.4398C19.9265 11.5352 19.8241 11.7577 19.8241 11.7577C19.8241 11.7577 19.3554 13.0056 18.7302 14.0669C17.4115 16.3063 16.8842 16.4244 16.6687 16.2854C16.1673 15.9613 16.2924 14.9835 16.2924 14.2888C16.2924 12.1187 16.6216 11.2138 15.6515 10.9796C15.3296 10.9018 15.0927 10.8504 14.2694 10.8422C13.2127 10.8312 12.3182 10.8454 11.8118 11.0935C11.4749 11.2585 11.215 11.6261 11.3733 11.6473C11.569 11.6735 12.0123 11.7668 12.2474 12.0868C12.5509 12.4997 12.5402 13.427 12.5402 13.427C12.5402 13.427 12.7145 15.9816 12.1329 16.299C11.7337 16.5167 11.1861 16.0723 10.0104 14.0407C9.40797 13 8.95314 11.8497 8.95314 11.8497C8.95314 11.8497 8.86544 11.6347 8.70902 11.5197C8.51917 11.3804 8.25392 11.336 8.25392 11.336L5.43965 11.3545C5.43965 11.3545 5.01717 11.3662 4.86209 11.5499C4.72412 11.7133 4.85113 12.0513 4.85113 12.0513C4.85113 12.0513 7.05441 17.206 9.54915 19.8037C11.8367 22.1853 14.4344 22.0289 14.4344 22.0289Z" fill="#FEFEFE"/>
-</svg></a></div>
+          <!--.footer-social
+          a(href="#").footer-social__link
+            <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect y="0.449951" width="30" height="30" fill="#55ACEE"/>
+              <path d="M15.001 30.45C23.2852 30.45 30.001 23.7342 30.001 15.45C30.001 7.16568 23.2852 0.449951 15.001 0.449951C6.71671 0.449951 0.000976562 7.16568 0.000976562 15.45C0.000976562 23.7342 6.71671 30.45 15.001 30.45Z" fill="#55ACEE"/>
+              <path d="M24.189 11.2299C23.5462 11.515 22.8548 11.7078 22.1296 11.7939C22.87 11.3503 23.4382 10.6484 23.7064 9.81063C23.0136 10.2216 22.2459 10.5197 21.4296 10.6804C20.7755 9.98389 19.8437 9.54858 18.8118 9.54858C16.8321 9.54858 15.2264 11.1543 15.2264 13.134C15.2264 13.415 15.2582 13.6886 15.3197 13.9511C12.34 13.8017 9.69788 12.3744 7.92937 10.2045C7.6208 10.7339 7.44379 11.3503 7.44379 12.0072C7.44379 13.2509 8.07723 14.3488 9.03876 14.9916C8.45131 14.9731 7.89808 14.8119 7.41491 14.5426C7.41464 14.5579 7.41464 14.5731 7.41464 14.5881C7.41464 16.3253 8.65105 17.7743 10.2909 18.1034C9.9904 18.1858 9.67301 18.2294 9.34653 18.2294C9.11497 18.2294 8.89063 18.2072 8.67191 18.1655C9.12807 19.5896 10.4519 20.6263 12.0212 20.6554C10.7939 21.6172 9.24813 22.1902 7.56786 22.1902C7.27908 22.1902 6.99297 22.1734 6.71301 22.1399C8.2989 23.1576 10.184 23.751 12.2087 23.751C18.8035 23.751 22.4101 18.2877 22.4101 13.5493C22.4101 13.3939 22.4066 13.2391 22.3997 13.0856C23.1008 12.5802 23.7085 11.9489 24.189 11.2299Z" fill="#F1F2F2"/>
+            </svg>
+          a(href="#").footer-social__link
+            <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect y="0.449951" width="30" height="30" fill="#3B5998"/>
+              <path d="M15.001 30.45C23.2852 30.45 30.001 23.7342 30.001 15.45C30.001 7.16568 23.2852 0.449951 15.001 0.449951C6.71671 0.449951 0.000976562 7.16568 0.000976562 15.45C0.000976562 23.7342 6.71671 30.45 15.001 30.45Z" fill="#3B5998"/>
+              <path d="M18.772 16.037H16.0954V25.8427H12.0402V16.037H10.1115V12.5909H12.0402V10.3609C12.0402 8.76619 12.7977 6.26904 16.1315 6.26904L19.1354 6.28161V9.62665H16.9559C16.5984 9.62665 16.0957 9.80527 16.0957 10.566V12.5941H19.1263L18.772 16.037Z" fill="#FEFEFE"/>
+            </svg>
+          a(href="#").footer-social__link
+            <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect y="0.449951" width="30" height="30" fill="#4D76A1"/>
+              <path d="M15.001 30.45C23.2852 30.45 30.001 23.7342 30.001 15.45C30.001 7.16568 23.2852 0.449951 15.001 0.449951C6.71671 0.449951 0.000976562 7.16568 0.000976562 15.45C0.000976562 23.7342 6.71671 30.45 15.001 30.45Z" fill="#4D76A1"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.4344 22.0289H15.6117C15.6117 22.0289 15.9673 21.9899 16.1489 21.7941C16.316 21.6145 16.3106 21.277 16.3106 21.277C16.3106 21.277 16.2876 19.6973 17.0208 19.4647C17.7436 19.2355 18.6717 20.9914 19.6554 21.6666C20.3993 22.1776 20.9645 22.0655 20.9645 22.0655L23.5948 22.0289C23.5948 22.0289 24.9708 21.9442 24.3184 20.8623C24.2649 20.7738 23.9384 20.062 22.3627 18.5994C20.7135 17.0686 20.9343 17.3162 22.921 14.6682C24.131 13.0556 24.6147 12.0711 24.4636 11.6494C24.3195 11.2478 23.4296 11.3539 23.4296 11.3539L20.468 11.3724C20.468 11.3724 20.2485 11.3424 20.0856 11.4398C19.9265 11.5352 19.8241 11.7577 19.8241 11.7577C19.8241 11.7577 19.3554 13.0056 18.7302 14.0669C17.4115 16.3063 16.8842 16.4244 16.6687 16.2854C16.1673 15.9613 16.2924 14.9835 16.2924 14.2888C16.2924 12.1187 16.6216 11.2138 15.6515 10.9796C15.3296 10.9018 15.0927 10.8504 14.2694 10.8422C13.2127 10.8312 12.3182 10.8454 11.8118 11.0935C11.4749 11.2585 11.215 11.6261 11.3733 11.6473C11.569 11.6735 12.0123 11.7668 12.2474 12.0868C12.5509 12.4997 12.5402 13.427 12.5402 13.427C12.5402 13.427 12.7145 15.9816 12.1329 16.299C11.7337 16.5167 11.1861 16.0723 10.0104 14.0407C9.40797 13 8.95314 11.8497 8.95314 11.8497C8.95314 11.8497 8.86544 11.6347 8.70902 11.5197C8.51917 11.3804 8.25392 11.336 8.25392 11.336L5.43965 11.3545C5.43965 11.3545 5.01717 11.3662 4.86209 11.5499C4.72412 11.7133 4.85113 12.0513 4.85113 12.0513C4.85113 12.0513 7.05441 17.206 9.54915 19.8037C11.8367 22.1853 14.4344 22.0289 14.4344 22.0289Z" fill="#FEFEFE"/>
+            </svg>
+          -->
         </div>
         <div class="footer-bot">
           <p class="footer__rights">© Все права защищены</p><a class="footer__agreement" href="#">Пользовательское соглашение</a><a class="footer__rastudio" href="#"><svg width="78" height="36" viewBox="0 0 78 36" fill="none" xmlns="http://www.w3.org/2000/svg">

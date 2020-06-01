@@ -62,7 +62,9 @@
       width: calc(100% + 80px);
       margin-left: -40px;
       #contacts-map{
-        position: static;
+        position: relative;
+        top: 0;
+        left: 0;
         height: 400px;
       }
     }

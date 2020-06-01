@@ -10,12 +10,12 @@ block content
         .container.banner-item-desc
           p.banner-item-desc__title Резиденция у озера
           p.banner-item-desc__text Проект компании NEVA PROPERTY в Ленинградской области
-          a(href="#").btn.banner-item-desc__btn Смотреть проект
+          a(href="#").btn.btn_white.btn_white_lightBlue.banner-item-desc__btn Смотреть проект
       .banner-item(style="background-image: url('assets/images/banner-1.png')")
         .container.banner-item-desc
           p.banner-item-desc__title Резиденция у озера
           p.banner-item-desc__text Проект компании NEVA PROPERTY в Ленинградской области
-          a(href="#").btn.banner-item-desc__btn Смотреть проект
+          a(href="#").btn.btn_white.btn_white_lightBlue.banner-item-desc__btn Смотреть проект
     section.about
       .container  
         p.defaultSup О компании
@@ -235,58 +235,4 @@ block content
             img(src="assets/images/partner-1.png", alt="")
           .partners-carousel-item
             img(src="assets/images/partner-1.png", alt="")
-    section.form
-      .container
-        p.defaultSup Давайте сотрудничать
-        p.defaultTitle Свяжитесь с нами
-        .form-row
-          form.form-col
-            .form-check
-              p.form-check__title Интересующий тип земли
-              .form-check-row
-                label.form-check-label 
-                  input#typeRealty__azs(type="checkbox", name="typeRealty")
-                  p.form-check-button АЗС
-                label.form-check-label 
-                  input#typeRealty__carwash(type="checkbox", name="typeRealty")
-                  p.form-check-button Мойки
-                label.form-check-label 
-                  input#typeRealty__restaurant(type="checkbox", name="typeRealty")
-                  p.form-check-button Рестораны
-                label.form-check-label 
-                  input#typeRealty__sklad(type="checkbox", name="typeRealty")
-                  p.form-check-button Склады 
-                label.form-check-label 
-                  input#typeRealty__shop(type="checkbox", name="typeRealty")
-                  p.form-check-button Магазины
-                label.form-check-label 
-                  input#typeRealty__sto(type="checkbox", name="typeRealty")
-                  p.form-check-button СТО
-                label.form-check-label 
-                  input#typeRealty__cafe(type="checkbox", name="typeRealty")
-                  p.form-check-button Кафе
-                label.form-check-label 
-                  input#typeRealty__office(type="checkbox", name="typeRealty")
-                  p.form-check-button Офисы 
-                label.form-check-label 
-                  input#typeRealty__tc(type="checkbox", name="typeRealty")
-                  p.form-check-button Торговые центры
-            .form-inputs
-              .form-inputs-row
-                .form-input.form-input_half
-                  input#clientName(type="text" name="clientName" placeholder="&nbsp;")
-                  label(for="clientName") Имя
-                .form-input.form-input_half
-                  input#clientPhone(type="text" name="clientPhone" placeholder="&nbsp;")
-                  label(for="clientPhone") Телефон
-                .form-input
-                  input#clientCompany(type="text" name="clientCompany" placeholder="&nbsp;")
-                  label(for="clientCompany") Компания
-                .form-input
-                  input#clientMessage(type="text" name="clientMessage" placeholder="&nbsp;")
-                  label(for="clientMessage") Сообщение
-            .form-bottom
-              button(type="submit").btn Отправить сообщение
-              p.form-bottom__text Отправляя данное сообщение, Вы соглашаетесь с <a href="#">политикой конфиденциальности</a>
-          .form-img
-            img(src="assets/images/prison.png", alt="")
+    include ../common/form.pug

@@ -90,6 +90,7 @@
     color: var(--black);
     font-weight: 500;
     transition: .3s;
+    flex-shrink: 0;
     &:hover{
       @media screen and (min-width: 1024px) {
         color: var(--purple);

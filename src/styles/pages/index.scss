@@ -39,13 +39,21 @@
         color: #FFFFFF;
         margin-bottom: 40px;
       }
+      &__btn{
+        background: transparent;
+        &:hover{
+          @media screen and (min-width: 1024px) {
+            background-color: var(--white);
+          }
+        }
+      }
     }
   }
 }
 
 .about{
   margin-top: 120px;
-  margin-bottom: 160px;
+  margin-bottom: 120px;
   &-row{
     display: flex;
     align-items: flex-start;
@@ -94,8 +102,8 @@
 }
 
 .areas{
-  margin-top: 160px;
-  margin-bottom: 160px;
+  margin-top: 120px;
+  margin-bottom: 120px;
   &-more{
     display: flex;
     flex-direction: column;
@@ -116,8 +124,8 @@
   &__more{
     display: none;
   }
-  margin-bottom: 160px;
-  margin-top: 160px;
+  margin-bottom: 120px;
+  margin-top: 120px;
   &-carousel{
     position: relative;
     margin: -8px;
@@ -167,8 +175,8 @@
 }
 
 .partners{
-  margin-bottom: 160px;
-  margin-top: 160px;
+  margin-bottom: 120px;
+  margin-top: 120px;
   &-carousel{
     position: relative;
     .owl-stage-outer{
@@ -259,7 +267,7 @@
   }
   .about{
     margin-top: 80px;
-    margin-bottom: 120px;
+    margin-bottom: 80px;
     &-desc{
       flex: 0 0 50%;
     }
@@ -281,8 +289,8 @@
     }
   }
   .areas{
-    margin-top: 120px;
-    margin-bottom: 120px;
+    margin-top: 80px;
+    margin-bottom: 80px;
     &-grid{
       margin: -16px -16px 40px;
       width: calc(100% + 32px);
@@ -322,8 +330,8 @@
     }
   }
   .projects{
-    margin-top: 120px;
-    margin-bottom: 120px;
+    margin-top: 80px;
+    margin-bottom: 80px;
     &-carousel{
       display: flex;
       flex-wrap: wrap;
@@ -348,8 +356,8 @@
     }
   }
   .partners{
-    margin-top: 120px;
-    margin-bottom: 120px;
+    margin-top: 80px;
+    margin-bottom: 80px;
   }
 }
 
@@ -472,16 +480,25 @@
     &-carousel{
       display: flex;
       flex-wrap: wrap;
-      margin: -12px;
-      width: calc(100% + 24px);
+      //margin: -12px;
+      width: calc(100%);
+      .owl-stage-outer{
+        margin: -16px;
+        padding: 16px;
+      }
+      .owl-nav{
+        max-width: 100%;
+        left: 0;
+      }
       &-item{
-        margin: 12px;
+        //margin: 12px;
+        margin: 0;
         height: 140px;
-        padding-bottom: 0;
+        /*padding-bottom: 0;
         width: calc(50% - 24px);
         &:nth-child(n+7){
           display: none;
-        }
+        }*/
       }
     }
   }

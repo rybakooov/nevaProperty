@@ -1,7 +1,7 @@
 .item{
   &-banner{
     position: relative;
-    margin-bottom: 160px;
+    margin-bottom: 120px;
     &-container{
       display: flex;
       height: calc(100vh - 84px);
@@ -70,8 +70,8 @@
     }
   }
   &-about{
-    margin-top: 160px;
-    margin-bottom: 160px;
+    margin-top: 120px;
+    margin-bottom: 120px;
     
     &-container{
       display: flex;
@@ -99,7 +99,7 @@
         font-size: 16px;
         line-height: 150%;
         color: var(--darkGray);
-        margin-bottom: 40px;
+        margin-bottom: 16px;
       }
       &__item{
         background: var(--white);
@@ -125,8 +125,8 @@
     }
   }
   &-facts{
-    margin-top: 160px;
-    margin-bottom: 160px;
+    margin-top: 120px;
+    margin-bottom: 120px;
     &-row{
       display: flex;
       margin: -40px;
@@ -181,7 +181,7 @@
   }
   &-similar{
     margin-bottom: 150px;
-    margin-top: 160px;
+    margin-top: 120px;
     .filter{
       margin-bottom: 30px;
     }
@@ -209,7 +209,7 @@
   .item{
     &-banner{
       position: relative;
-      margin-bottom: 120px;
+      margin-bottom: 80px;
       &-desc{
         flex: none;
         max-width: 100%;
@@ -263,15 +263,17 @@
         min-height: 0;
       }
       &-map #item-map{
-        position: static;
+        position: relative;
+        top: 0;
+        left: 0;
         width: calc(100% + 80px);
         height: 400px;
         margin-left: -40px;
       }
     }
     &-about{
-      margin-top: 120px;
-      margin-bottom: 120px;
+      margin-top: 80px;
+      margin-bottom: 80px;
       &-slider{
         order: 2;
         flex: 0 0 420px;
@@ -294,8 +296,8 @@
       }
     }
     &-facts{
-      margin-top: 120px;
-      margin-bottom: 100px;
+      margin-top: 80px;
+      margin-bottom: 60px;
       &-row{
         margin: -20px;
         width: calc(100% + 40px);
@@ -310,8 +312,8 @@
       }
     }
     &-similar{
-      margin-top: 100px;
-      margin-bottom: 120px;
+      margin-top: 60px;
+      margin-bottom: 80px;
       .filter{
         margin-bottom: 40px;
       }
